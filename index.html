@@ -36,34 +36,77 @@
    </div>
   </div>
   <script> 
-    var header=document.querySelector('#main-header');
+   // traversing the dom
 
-console.log(header);
-header.style.borderBottom='solid red 10px';
+var  item = document.querySelector('#items');
 
-var input= document.querySelector('input');
-input.value="yeah buoy";
+//parentnode
 
-var in_submit= document.querySelector('input[type="submit"]');
-in_submit.value='done';
-in_submit.style.color='blue';
+// console.log(item.parentNode);
+item.parentNode.style.backgroundColor='steelblue';
 
-var lst= document.querySelector('.list-group-item:first-child');
-var lst2= document.querySelector('.list-group-item:last-child');
-lst.style.color='red';
-lst2.style.color='blue';
-lst2.textContent='hiiiiiiiii';
+// console.log(item.parentNode.parentNode.parentNode);
 
-//que3rySelectorAll
+item.parentNode.parentNode.parentNode.style.backgroundColor='whitesmoke';
 
-var odd=document.querySelectorAll('li:nth-child(odd)');
-var even=document.querySelectorAll('li:nth-child(even)');
-console.log(odd);
-for (var i = 0 ; i < odd.length ; i++)
-{
-    odd[i].style.backgroundColor = 'steelblue';
-    even[i].style.backgroundColor='grey';
-}
+//childNodes
+
+// console.log(item.childNodes)    //returns all child nodes with line breaks also
+
+// //returns child node with line breaks also
+// console.log(item.firstChild)  
+// console.log(item.firstChild)  
+
+// to return only elements
+// console.log(item.firstElementChild);
+item.firstElementChild.innerText='hey there'
+// console.log(item.lastElementChild);
+item.lastElementChild.textContent='you know what';
+
+// using children we don't get the texts 
+// console.log(item.children);
+console.log(item.firstChild);
+console.log(item.lastChild);
+item.children[1].style.color='red'; // and so all others
+
+// siblings : to get access to sibling nodes
+
+console.log(item.nextSibling)   //pointing  to next text break
+console.log(item.nextElementSibling)    // to next element if nt there then NULL
+
+console.log(item.previousSibling)   // with line break
+console.log(item.previousElementSibling)   // only a previous element
+
+item.previousElementSibling.textContent='items -> hello';
+
+
+//creating elements
+
+var newdiv = document.createElement('div');
+
+newdiv.className='hey_new_one';
+newdiv.id='id';
+
+newdiv.setAttribute('title', 'helo div');
+
+// console.log(newdiv);
+
+var newtxt= document.createTextNode('hello new div');
+
+newdiv.appendChild(newtxt);     // adding newtxt into the newdiv
+
+// console.log(newdiv); 
+
+// to add the newdiv to our dom
+
+var container= document.querySelector( 'header .container');
+console.log(container);
+
+container.insertBefore(newdiv,container.firstElementChild);     // inserting before the first element child of container that is <h1>
+
+newdiv.style.color='whtesmoke';
+newdiv.style.fontSize='15px';
+
   </script>
   <!-- <script src="dom.js"></script> -->
 </body>
