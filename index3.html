@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>JS For Beginners</title>
+    <link rel="stylesheet" href="style3.css">
+  </head>
+  <body>
+    <header>
+      <h1>JS For Beginners</h1>
+    </header>
+
+    <section class="container">
+      <form id="my-form">
+        <h1>Add User</h1>
+        <div class="msg"></div>
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" id="name">
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input type="text" id="email">
+        </div>
+        <input class="btn" type="submit" value="Submit" id="btn1">
+      </form>
+
+      <ul id="users"></ul>
+
+      <!-- <ul class="items">
+        <li class="item">Item 1</li>
+        <li class="item">Item 2</li>
+        <li class="item">Item 3</li>
+      </ul> -->
+    </section>
+    
+<script>
+    // getting to the form 
+
+var form = document.getElementById('my-form');
+var btn1 = document.getElementById('btn1');
+
+btn1.addEventListener('click', additem);
+
+function additem(e)
+{
+    e.preventDefault();
+    // take input of the name
+  
+    var name = document.getElementById('name').value;
+    var mail = document.getElementById('email').value;
+
+    localStorage.setItem(name, mail);
+    localStorage.getItem
+    alert('submitted');
+}
+
+//creating a box to fetch the details of a user if existing
+
+var div= document.createElement('div');
+div.className= 'getdetails';
+
+var lbl=document.createElement('label');
+lbl.innerHTML= '<label for="details">Get Details:</label>'
+div.appendChild(lbl);
+
+// console.log(div.firstChild);
+var inp = document.createElement('input');
+inp.className='getdetails';
+inp.id='inp';
+inp.type='text';
+inp.placeholder='enter user name';
+inp.style.boxSizing='10 20';
+// console.log (inp);
+
+div.appendChild(inp);
+console.log(div);
+form.appendChild(div);
+
+// to create a get button
+var btn = document.createElement('button');
+btn.className='btn';
+btn.id='btn2';
+btn.type='submit';
+btn.value='submit';
+btn.innerText='get';
+
+div.appendChild(btn);
+
+// adding functionality to get btn
+var btn2 = document.getElementById('btn2');
+btn2.addEventListener('click', getitem);
+
+function getitem(e)
+{
+    e.preventDefault();
+    
+    var itm= document.getElementById('inp').value;
+    var fnd = localStorage.getItem(itm);
+    if(fnd!= null)
+    {
+        // console.log(fnd);
+        var newt = document.createElement('div');
+        newt.appendChild(document.createTextNode(itm + "    "));
+        newt.appendChild(document.createTextNode(fnd));
+        // newt.innerHTML= '<div> <h3>fnd</h3>  </div> ';
+        form.appendChild(newt);
+    }
+    else
+    {
+        var newt = document.createElement('div');
+        newt.appendChild(document.createTextNode(itm + '    '));
+        newt.appendChild(document.createTextNode('NOT FOUND'));
+      
+        form.appendChild(newt);
+    }
+
+
+}
+</script>
+    <!-- <script src="dom3.js"></script> -->
+  </body>
+</html>
