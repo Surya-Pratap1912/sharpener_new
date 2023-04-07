@@ -98,6 +98,39 @@ function remove(e)
     }
 }
 
+//filteriing up
+
+var filter = document.getElementById('filter');
+
+filter.addEventListener('keyup',filteritems);
+
+function filteritems(e)
+{
+    //CONVERting to lower case
+    var text=e.target.value.toLowerCase();
+    // console.log(text);
+
+    // getting all li's
+    var item =document.getElementsByTagName('li');
+
+    // console.log (item);
+
+    Array.from(item).forEach(function(it)
+    {
+        var itemName = it.firstChild.textContent;
+        // console.log(itemName);   //as first child is text
+        // now to search for given text
+        if(itemName.toLowerCase().indexOf(text)!=-1)    // searching for txt 
+        {
+            it.style.display='block';   //if found make it display as block
+        }
+        else 
+        {
+            it.style.display='none';    //else show none
+        }
+    });
+
+}
   </script>
   <!-- <script src="dom2.js"></script> -->
 </body>
