@@ -25,6 +25,11 @@
           <input type="text" id="email">
         </div>
         <input class="btn" type="submit" value="Submit" id="btn1">
+
+        <!-- <div >
+            <textarea name="txtarea" id="txt_in" cols="45" rows="2">jbhsbvch</textarea>
+        </div> -->
+
       </form>
 
       <ul id="users"></ul>
@@ -116,6 +121,28 @@ function getitem(e)
       
         form.appendChild(newt);
     }
+
+    // serialising to a string and deserializing for storing an object into localstorage
+
+let myobj = {
+    name : "aman",
+    age : 22
+}
+
+//now make string 
+
+let myobj_str = JSON.stringify(myobj);
+
+console.log(myobj_str);
+
+localStorage.setItem('myobj', myobj_str);
+
+console.log(localStorage);
+
+//to deserialize
+
+let str= JSON.parse(localStorage.getItem('myobj'));     //to an object
+console.log(str);
 
 
 }
