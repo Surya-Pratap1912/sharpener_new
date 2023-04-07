@@ -41,7 +41,7 @@
       </ul> -->
     </section>
     
-<script>
+ <script>
     // getting to the form 
 
 var form = document.getElementById('my-form');
@@ -142,8 +142,27 @@ console.log(localStorage);
 //to deserialize
 
 let str= JSON.parse(localStorage.getItem('myobj'));     //to an object
-console.log(str);
+console.log(str); 
 
+// to remove an item from localstorage
+var btn3 = document.createElement("button");
+btn3.className = "btn";
+btn3.id = "btn3";
+btn3.type = "submit";
+btn3.value = "submit";
+btn3.innerText = "remove";
+div.appendChild(btn3);
+
+console.log(div);
+
+btn3.addEventListener('click',remove);
+function remove(e)
+{
+    e.preventDefault();
+    var itm = document.getElementById("inp").value;
+    localStorage.removeItem(itm);
+//   var fnd = localStorage.getItem(itm);
+}
 
 }
 </script>
