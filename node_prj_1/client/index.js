@@ -44,18 +44,18 @@ function print() {
 
 function printList(obj) {
   const li = document.createElement("li");
-  li.innerHTML = `<span class='me-3'>${obj.price}</span><span>${obj.dish}</span><span> </span>`;
+  li.innerHTML = `<span class='me-3'>${obj.price}</span><span> ${obj.dish}</span><span> </span>`;
 
 
   li.style.fontWeight= 'bold';
 
   const btn = document.createElement("button");
-  btn.className = 'btn btn-dark'
+  btn.className = 'bton2'
   btn.innerHTML = "Delete";
   li.appendChild(btn);
 
   const edit = document.createElement("button");
-  edit.className = 'btn btn-dark'
+  edit.className = 'bton2'
   edit.innerHTML = "Edit";
   edit.classList.add("ms-5");
   li.appendChild(edit);
